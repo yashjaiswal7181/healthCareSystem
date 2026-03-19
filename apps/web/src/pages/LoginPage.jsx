@@ -1,11 +1,11 @@
 import { Box, Container, Paper, Typography } from '@mui/material';
 import { LoginForm } from '../features/auth/LoginForm';
 
-export function LoginPage() {
+export default function LoginPage() {
   return (
     <Container maxWidth="sm">
       <Box sx={{ mt: 8 }}>
-        <Paper elevation={3} sx={{ p: 4 }}>
+        <Paper elevation={3} sx={{ p: 2 }}>
           <Typography variant="h5" gutterBottom>
             Patient Visit Tracker
           </Typography>
