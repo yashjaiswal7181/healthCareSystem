@@ -5,7 +5,7 @@ import {
   Button,
   TextField,
   Box,
-  Stack,
+  Grid,
   FormControl,
   InputLabel,
   Select,
@@ -52,58 +52,70 @@ export default function VisitForm({ onSubmit, clinicians, patients }) {
 
   return (
     <Box component="form" onSubmit={handleSubmit(handleFormSubmit)}>
-      <Stack spacing={2} maxWidth={400}>
-        <FormControl fullWidth error={!!errors.clinician_id} required>
-          <InputLabel>Clinician</InputLabel>
-          <Select
-            value={clinicianId}
-            label="Clinician"
-            onChange={(e) => setValue('clinician_id', e.target.value)}
-          >
-            <MenuItem value="">Select</MenuItem>
-            {clinicians?.map((c) => (
-              <MenuItem key={c.id} value={c.id}>
-                {c.first_name} {c.last_name}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        <FormControl fullWidth error={!!errors.patient_id} required>
-          <InputLabel>Patient</InputLabel>
-          <Select
-            value={patientId}
-            label="Patient"
-            onChange={(e) => setValue('patient_id', e.target.value)}
-          >
-            <MenuItem value="">Select</MenuItem>
-            {patients?.map((p) => (
-              <MenuItem key={p.id} value={p.id}>
-                {p.first_name} {p.last_name}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        <TextField
-          label="Visit Date & Time"
-          type="datetime-local"
-          {...register('visited_at')}
-          error={!!errors.visited_at}
-          helperText={errors.visited_at?.message}
-          InputLabelProps={{ shrink: true }}
-          fullWidth
-          required
-        />
-        <TextField
-          label="Notes"
-          {...register('notes')}
-          multiline
-          rows={2}
-          fullWidth
-        />
-        <Button type="submit" variant="contained">
-          Record Visit
-        </Button>
-      </Stack>
+      <Grid container spacing={2}>
+        <Grid item xs={12} md={4}>
+          <FormControl fullWidth error={!!errors.clinician_id} required size="small">
+            <InputLabel>Clinician</InputLabel>
+            <Select
+              value={clinicianId}
+              label="Clinician"
+              onChange={(e) => setValue('clinician_id', e.target.value)}
+            >
+              <MenuItem value="">Select</MenuItem>
+              {clinicians?.map((c) => (
+                <MenuItem key={c.id} value={c.id}>
+                  {c.first_name} {c.last_name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <FormControl fullWidth error={!!errors.patient_id} required size="small">
+            <InputLabel>Patient</InputLabel>
+            <Select
+              value={patientId}
+              label="Patient"
+              onChange={(e) => setValue('patient_id', e.target.value)}
+            >
+              <MenuItem value="">Select</MenuItem>
+              {patients?.map((p) => (
+                <MenuItem key={p.id} value={p.id}>
+                  {p.first_name} {p.last_name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <TextField
+            label="Visit Date & Time"
+            type="datetime-local"
+            {...register('visited_at')}
+            error={!!errors.visited_at}
+            helperText={errors.visited_at?.message}
+            InputLabelProps={{ shrink: true }}
+            fullWidth
+            required
+            size="small"
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            label="Notes"
+            {...register('notes')}
+            multiline
+            rows={2}
+            fullWidth
+            size="small"
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <Button type="submit" variant="contained">
+            Record Visit
+          </Button>
+        </Grid>
+      </Grid>
     </Box>
   );
 }

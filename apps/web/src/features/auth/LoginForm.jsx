@@ -31,7 +31,7 @@ export function LoginForm() {
 
   return (
     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh' }}>
-      <Paper sx={{ p: 4, maxWidth: 400, width: '100%' }} elevation={3}>
+      <Paper sx={{ p: 2, maxWidth: 400, width: '100%' }} elevation={3}>
         <Typography variant="h5" component="h1" gutterBottom>
           Patient Visit Tracker
         </Typography>
