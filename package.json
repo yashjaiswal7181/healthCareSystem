@@ -1,0 +1,23 @@
+{
+  "name": "woundtech",
+  "version": "1.0.0",
+  "description": "healthcare project",
+  "main": "index.js",
+  "private": true,
+  "workspaces": ["apps/*"],
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:web\"",
+    "dev:web": "npm run dev --workspace=apps/web",
+    "dev:api": "npm run dev --workspace=apps/api",
+    "db:migrate": "npm run migrate --workspace=apps/api",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "author": "",
+  "license": "ISC"
+}
