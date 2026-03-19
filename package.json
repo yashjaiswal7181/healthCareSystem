@@ -13,7 +13,7 @@
     "dev:web": "npm run dev --workspace=apps/web",
     "dev:api": "npm run dev --workspace=apps/api",
     "db:migrate": "npm run migrate --workspace=apps/api",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:api": "npm run test --workspace=apps/api"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
