@@ -91,8 +91,18 @@ export default function VisitsPage() {
         subtitle="Record and view patient visits"
       />
 
-      <SectionCard title="Filters">
-        <FilterBar sx={{ mb: 0, gap: '16px', display: 'flex' }}>
+      
+
+      <SectionCard title="Record Visit">
+        <VisitForm
+          onSubmit={handleCreateVisit}
+          clinicians={clinicians}
+          patients={patients}
+        />
+      </SectionCard>
+
+      <SectionCard title="Visit History">
+        <FilterBar sx={{ mb: 2, gap: '16px', display: 'flex' }}>
           <FormControl size="small" sx={{ minWidth: 200 }}>
             <InputLabel>Clinician</InputLabel>
             <Select
@@ -134,17 +144,6 @@ export default function VisitsPage() {
             </Select>
           </FormControl>
         </FilterBar>
-      </SectionCard>
-
-      <SectionCard title="Record Visit">
-        <VisitForm
-          onSubmit={handleCreateVisit}
-          clinicians={clinicians}
-          patients={patients}
-        />
-      </SectionCard>
-
-      <SectionCard title="Visit History">
         {error ? (
           <EmptyState
             message={error}
