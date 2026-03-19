@@ -92,7 +92,7 @@ export default function VisitsPage() {
       />
 
       <SectionCard title="Filters">
-        <FilterBar sx={{ mb: 0, gap: '16px' }}>
+        <FilterBar sx={{ mb: 0, gap: '16px', display: 'flex' }}>
           <FormControl size="small" sx={{ minWidth: 200 }}>
             <InputLabel>Clinician</InputLabel>
             <Select

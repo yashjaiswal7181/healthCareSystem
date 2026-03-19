@@ -73,8 +73,6 @@ Every file should be understandable in under 30 seconds.
 ### 5. Consistency > perfection
 Follow the same patterns everywhere.
 
-### 6. Interview-first thinking
-Every decision should be explainable clearly.
 
 ---
 
